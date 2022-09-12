@@ -4,7 +4,7 @@ import * as cdk from 'aws-cdk-lib';
 import {EcrStack} from "./stacks/ecr.stack";
 import {VpcStack} from "./stacks/vpc.stack";
 import {ElasticContainerStack} from "./stacks/elastic-container.stack";
-import {Route53Stack} from "./stacks/route53.stack";
+import {Route53Stack2} from "./stacks/route53.stack";
 import {Environment, Tags} from "aws-cdk-lib";
 import {PipelineStack} from "./stacks/pipeline.stack";
 import {getAccountId, getRegion, resolveCurrentUserOwnerName} from "@exanubes/cdk-utils";
@@ -33,7 +33,7 @@ async function start() {
         securityGroup: sg.databaseSg,
     });
     dbConfig.hostname = rds.db.instanceEndpoint.hostname;
-    dbConfig.port = 5432; // note port taken from rds instance is a negative integer; by default postgress db is ran on 5432
+    dbConfig.port = 5432;
     dbConfig.socketAddress = rds.db.instanceEndpoint.socketAddress;
 
     const ecs = new ElasticContainerStack(app, ElasticContainerStack.name, {
@@ -43,7 +43,7 @@ async function start() {
         env,
         securityGroup: sg.databaseAccessSg,
     });
-    new Route53Stack(app, Route53Stack.name, {
+    new Route53Stack2(app, Route53Stack2.name, {
         loadBalancer: ecs.loadBalancer,
         env,
     });
