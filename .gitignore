@@ -8,3 +8,4 @@
 **/cdk.out/
 **/infrastructure/src/**/*.d.ts
 **/infrastructure/src/**/*.js
+pg-data/
