@@ -25,7 +25,7 @@
   "dependencies": {
     "@exanubes/aws-cdk-ssm-secure-string-parameter": "^1.0.1",
     "@exanubes/cdk-utils": "^0.0.3",
-    "aws-cdk-lib": "2.15.0",
+    "aws-cdk-lib": "2.88.0",
     "constructs": "^10.0.0",
     "source-map-support": "^0.5.16"
   }
